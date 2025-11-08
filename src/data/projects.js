@@ -222,49 +222,57 @@ export const projects = [
   },
   {
     id: 6,
-    title: "Data Analytics Dashboard",
-    category: "Data Visualization",
+    title: "Document Signing API",
+    category: "Backend API",
     description:
-      "An interactive analytics dashboard for visualizing business metrics with real-time data updates and customizable reports.",
+      "A secure, auditable document signing API with user roles, signing workflows, and webhook integration for modern SaaS platforms.",
     longDescription:
-      "Created a comprehensive analytics dashboard that provides business insights through interactive charts and customizable reports. Supports multiple data sources and real-time updates.",
-    image: "/projects/analytics-dashboard.jpg",
+      "A robust Document Signing API built with Node.js, Express, and Prisma for managing documents, templates, and electronic signatures. It provides secure signing workflows, audit trails, and webhook notifications for integration with external systems.",
+    image: "/projects/document-signing-api.jpg",
     technologies: [
-      "React.js",
-      "D3.js",
-      "Chart.js",
       "Node.js",
-      "Express",
-      "MongoDB",
+      "Express.js",
+      "Prisma ORM",
+      "SQLite",
+      "JWT Authentication",
+      "Swagger UI",
     ],
     features: [
-      "Interactive data visualizations",
-      "Customizable dashboard widgets",
-      "Real-time data updates",
-      "Export reports to PDF/Excel",
-      "Date range filtering",
-      "Multi-metric comparisons",
+      "Upload and manage documents with version control",
+      "Create signing requests with multiple signers",
+      "Add signature fields (draw, type, date, image, etc.)",
+      "Role-based user management (Admin, Developer, Signer)",
+      "Audit logs for tracking document actions",
+      "Webhook notifications for signing events",
     ],
     challenges: [
-      "Rendering large datasets efficiently",
-      "Implementing real-time data updates",
-      "Creating intuitive data visualizations",
+      "Designing secure and auditable signing workflows",
+      "Managing multiple user roles and document permissions",
+      "Ensuring data integrity and traceability",
     ],
     results: [
-      "Improved data-driven decision making",
-      "Reduced report generation time by 70%",
-      "Increased user engagement with visual analytics",
+      "Improved signing process automation for organizations",
+      "Enhanced compliance and traceability with audit logs",
+      "Supports integration with SaaS platforms via webhooks",
     ],
-    github: "https://github.com/jacksonkhuto/analytics-dashboard",
-    demo: "https://analytics-demo.netlify.app",
-    status: "Completed",
-    date: "2024",
+    github: "https://github.com/jackson951/document-signing-api",
+    demo: "https://document-signing-api-docs.netlify.app",
+    status: "In Progress",
+    date: "2025",
     featured: false,
-    tags: ["Data Visualization", "Analytics", "D3.js", "Business Intelligence"],
+    tags: [
+      "Backend",
+      "API",
+      "Node.js",
+      "Prisma",
+      "Security",
+      "Digital Signature",
+    ],
   },
 ];
 
-// Filter and utility functions
+// ==================== Utility Functions ====================
+
 export const getProjectsByCategory = (category) =>
   projects.filter((project) => project.category === category);
 
@@ -292,3 +300,4 @@ export const projectStats = {
   inProgress: projects.filter((p) => p.status === "In Progress").length,
   featured: projects.filter((p) => p.featured).length,
 };
+// ==================== End of src/data/projects.js ====================
