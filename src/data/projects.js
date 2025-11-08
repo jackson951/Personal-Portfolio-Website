@@ -215,7 +215,7 @@ export const projects = [
     ],
     github: "https://github.com/jacksonkhuto/ecommerce-catalog",
     demo: "https://catalog-demo.netlify.app",
-    status: "Completed",
+    status: "In Progress",
     date: "2024",
     featured: false,
     tags: ["Frontend", "E-Commerce", "React", "UI/UX", "Performance"],
