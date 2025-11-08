@@ -1,37 +1,29 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./index.css"; // Ensure this line is present to include Tailwind CSS
+import "./index.css";
+import Navbar from "./components/common/Navbar";
+
+// Import your sections (add each file later)
+import Hero from "./components/home/Hero";
+import About from "./components/home/About";
+import Skills from "./components/home/Skills";
+import Projects from "./components/home/Projects";
+import Experience from "./components/home/Experience";
+import Contact from "./components/home/Contact";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div className="flex justify-center items-center space-x-4">
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1 className="text-center text-3xl font-bold mt-4">Vite + React</h1>
-      <div className="card bg-white shadow-md rounded-lg p-4 mt-4">
-        <button
-          className="bg-blue-500 text-white px-4 py-2 rounded"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          count is {count}
-        </button>
-        <p className="mt-2">
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="text-center mt-4">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+      <Navbar />
+
+      {/* Main Sections */}
+      <main className="pt-20">
+        {/* <Hero /> */}
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Contact />
+      </main>
+    </div>
   );
 }
 
