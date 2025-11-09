@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
+import logo from "../../assets/logo.png"; // ✅ IMPORT YOUR LOGO
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,14 +16,14 @@ const Navbar = () => {
     { name: "Contact", href: "#contact" },
   ];
 
-  // Initialize theme from localStorage or system preference
+  // Initialize theme
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    const systemPrefersDark = window.matchMedia(
+    const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
 
-    if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
       setIsDark(true);
       document.documentElement.classList.add("dark");
     } else {
@@ -31,21 +32,21 @@ const Navbar = () => {
     }
   }, []);
 
-  // Handle scroll effects
+  // Scroll effects
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      // Update active section based on scroll position
-      const sections = ["home", ...navItems.map((item) => item.href.slice(1))];
+      const sections = ["home", ...navItems.map((i) => i.href.slice(1))];
       const current = sections.find((section) => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
+        const el = document.getElementById(section);
+        if (el) {
+          const rect = el.getBoundingClientRect();
           return rect.top <= 100 && rect.bottom >= 100;
         }
         return false;
       });
+
       if (current) setActiveSection(current);
     };
 
@@ -53,36 +54,31 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll to section
+  // Smooth scrolling
   const scrollToSection = (e, href) => {
     e.preventDefault();
+
     if (href === "#home") {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       const element = document.querySelector(href);
       if (element) {
         const offset = 80;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        const position =
+          element.getBoundingClientRect().top + window.pageYOffset - offset;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
+        window.scrollTo({ top: position, behavior: "smooth" });
       }
     }
     setIsOpen(false);
   };
 
-  // Toggle theme
+  // Theme toggle
   const toggleTheme = () => {
-    const newDarkMode = !isDark;
-    setIsDark(newDarkMode);
+    const newDark = !isDark;
+    setIsDark(newDark);
 
-    if (newDarkMode) {
+    if (newDark) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
     } else {
@@ -101,15 +97,19 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+          {/* ✅ LOGO SECTION */}
           <a
             href="#home"
             onClick={(e) => scrollToSection(e, "#home")}
-            className="flex items-center space-x-2 hover:scale-105 transition-transform"
+            className="flex items-center space-x-3 hover:scale-105 transition-transform"
           >
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">J</span>
-            </div>
+            {/* Image Logo */}
+            <img
+              src={logo}
+              alt="Logo"
+              className="w-10 h-10 object-contain drop-shadow-md"
+            />
+
             <div className="flex flex-col">
               <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Jackson
@@ -120,7 +120,7 @@ const Navbar = () => {
             </div>
           </a>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <a
@@ -141,7 +141,6 @@ const Navbar = () => {
             <button
               onClick={toggleTheme}
               className="ml-4 p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-              aria-label="Toggle theme"
             >
               {isDark ? (
                 <Sun className="w-5 h-5 text-yellow-500" />
@@ -150,7 +149,7 @@ const Navbar = () => {
               )}
             </button>
 
-            {/* CTA Button */}
+            {/* CTA */}
             <a
               href="#contact"
               onClick={(e) => scrollToSection(e, "#contact")}
@@ -164,8 +163,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center space-x-2">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-              aria-label="Toggle theme"
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
             >
               {isDark ? (
                 <Sun className="w-5 h-5 text-yellow-500" />
@@ -173,15 +171,15 @@ const Navbar = () => {
                 <Moon className="w-5 h-5 text-gray-700" />
               )}
             </button>
+
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-              aria-label="Toggle menu"
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
             >
               {isOpen ? (
-                <X className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                <X className="w-6 h-6" />
               ) : (
-                <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                <Menu className="w-6 h-6" />
               )}
             </button>
           </div>
@@ -190,7 +188,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden transition-all duration-300 ease-in-out ${
+        className={`md:hidden transition-all duration-300 ${
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
@@ -200,7 +198,7 @@ const Navbar = () => {
               key={item.name}
               href={item.href}
               onClick={(e) => scrollToSection(e, item.href)}
-              className={`block px-4 py-3 rounded-lg text-base font-medium transition-all ${
+              className={`block px-4 py-3 rounded-lg text-base font-medium ${
                 activeSection === item.href.slice(1)
                   ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
                   : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -209,10 +207,11 @@ const Navbar = () => {
               {item.name}
             </a>
           ))}
+
           <a
             href="#contact"
             onClick={(e) => scrollToSection(e, "#contact")}
-            className="block w-full mt-4 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center rounded-lg hover:shadow-lg transition-all"
+            className="block w-full mt-4 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center rounded-lg hover:shadow-lg"
           >
             Let's Talk
           </a>
