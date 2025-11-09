@@ -295,7 +295,7 @@ const About = () => {
                 Get In Touch
               </a>
               <a
-                href="/jackson-khuto-cv.pdf"
+                href="/Personal-Portfolio-Website/Jackson_Khuto_CV.pdf"
                 download
                 className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:border-blue-500 hover:text-blue-600 dark:hover:border-blue-400 dark:hover:text-blue-400 transition-all duration-200 font-semibold flex items-center space-x-2"
               >

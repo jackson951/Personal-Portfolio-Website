@@ -365,7 +365,7 @@ const Experience = () => {
                 Get In Touch
               </a>
               <a
-                href="/jackson-khuto-cv.pdf"
+                href="/Personal-Portfolio-Website/Jackson_Khuto_CV.pdf"
                 download
                 className="px-8 py-3 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 transition-all duration-200 font-semibold flex items-center space-x-2"
               >
