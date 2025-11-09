@@ -123,7 +123,7 @@ export const projects = [
     ],
     github: "https://github.com/jacksonkhuto/student-information-system",
     demo: "https://student-system-demo.netlify.app",
-    status: "Completed",
+    status: "In Progress",
     date: "2024",
     featured: true,
     tags: ["Full-Stack", "Education", "Database", "React", "PostgreSQL"],
