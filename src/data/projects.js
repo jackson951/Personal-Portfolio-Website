@@ -165,7 +165,7 @@ export const projects = [
       "Enhanced employee experience with self-service tools",
     ],
     github: "https://github.com/jackson951/leave-request-and-management-app",
-    demo: "https://leave-management-demo.netlify.app",
+    demo: "https://digititan-leave-app.vercel.app/login",
     status: "Completed",
     date: "2025",
     featured: true,
