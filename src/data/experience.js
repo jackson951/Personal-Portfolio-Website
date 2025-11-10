@@ -1,38 +1,38 @@
 // ==================== src/data/experience.js ====================
 
 export const experiences = [
-  {
-    id: 1,
-    title: "Junior Software Developer Intern",
-    company: "Bluu Car Rental",
-    location: "Kempton Park, South Africa",
-    period: "Feb 2025 - Jul 2025",
-    type: "Internship",
-    current: false,
-    description:
-      "Designing and optimizing business applications using modern web technologies in a fast-paced logistics environment.",
-    responsibilities: [
-      "Designed and optimized business applications using C#, ASP.NET Core, and React.js",
-      "Developed and integrated RESTful APIs to streamline internal reporting and improve data flow",
-      "Collaborated with multi-disciplinary teams to implement process improvements across departments",
-      "Participated in Agile sprints, contributing to system upgrades and UI/UX improvements",
-      "Enhanced productivity by developing reusable components and improving data management efficiency",
-    ],
-    achievements: [
-      "Successfully delivered an internal dashboard that reduced reporting turnaround time by 30%",
-      "Improved decision-making across operations through automated reporting systems",
-    ],
-    skills: [
-      "C#",
-      "ASP.NET Core",
-      "React.js",
-      "REST APIs",
-      "Agile",
-      "SQL Server",
-    ],
-    logo: "🚗", // You can replace with actual logo URL
-    color: "blue",
-  },
+  // {
+  //   id: 1,
+  //   title: "Junior Software Developer Intern",
+  //   company: "Bluu Car Rental",
+  //   location: "Kempton Park, South Africa",
+  //   period: "Feb 2025 - Jul 2025",
+  //   type: "Internship",
+  //   current: false,
+  //   description:
+  //     "Designing and optimizing business applications using modern web technologies in a fast-paced logistics environment.",
+  //   responsibilities: [
+  //     "Designed and optimized business applications using C#, ASP.NET Core, and React.js",
+  //     "Developed and integrated RESTful APIs to streamline internal reporting and improve data flow",
+  //     "Collaborated with multi-disciplinary teams to implement process improvements across departments",
+  //     "Participated in Agile sprints, contributing to system upgrades and UI/UX improvements",
+  //     "Enhanced productivity by developing reusable components and improving data management efficiency",
+  //   ],
+  //   achievements: [
+  //     "Successfully delivered an internal dashboard that reduced reporting turnaround time by 30%",
+  //     "Improved decision-making across operations through automated reporting systems",
+  //   ],
+  //   skills: [
+  //     "C#",
+  //     "ASP.NET Core",
+  //     "React.js",
+  //     "REST APIs",
+  //     "Agile",
+  //     "SQL Server",
+  //   ],
+  //   logo: "🚗", // You can replace with actual logo URL
+  //   color: "blue",
+  // },
   {
     id: 2,
     title: "Student Assistant - CMPG221",
